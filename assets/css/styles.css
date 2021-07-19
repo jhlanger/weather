@@ -1,0 +1,43 @@
+.hero {
+    padding: 3% 4%;
+    background-image: url(../images/Blue-Fade-Background.PNG);
+    background-size: cover;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .flex-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .imgSize img {
+      height: 5%;
+      width: 5%;
+  }
+  
+  .search-card {
+      margin-top: 20px;
+      border-top: 2px solid black;
+  }
+
+  .justify-space-between {
+    justify-content: space-between;
+  }
+
+  .forecast-card {
+      background-color: blue;
+  }
+
+  #search-history {
+      margin-top: 20px;
+  }
+  .city-btn {
+      width: 100%;
+      text-align: center;
+      
+      padding: 5px;
+      margin-bottom: 10px;
+
+  }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href= "./assets/css/styles.css" >
+</head>
+<body >
+    <header class="hero">
+        <h1 class="app-title"><i class="fab fa-github"></i> Weather Dashboard</h1>
+        <p>Search for a City to see the daily and upcoming weather forecast!
+        </p>
+      </header>
+
+    <main class="flex-row justify-space-between">
+        <div class = "col-12 col-md-4">
+            
+            <!--search for a city-->
+            <div class="card border-primary ">
+                <h3 class="card-header text-uppercase bg-primary">Search for a City</h3>
+                <form id="city-form" class="card-body">
+                  <label class="form-label" for="cityname">City</label>
+                  <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
+                  <button type="submit" class="btn">Search</button>
+                </form>
+              </div> 
+
+            <!--Previous Searches-->
+            <div class = "search-card"></div>
+
+            <div id = "search-history"></div>
+
+        </div>
+
+        <div class="col-12 col-md-8">
+            <!--Today's Forcast-->
+            <div class="card bg-primary">
+                <h3 class="card-header text-uppercase">Daily Forecast for <span id="daily-city-name"></span></h3>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" >Condition: <span id = "daily-condition"></span></li>
+                  <li class="list-group-item" >Temp: <span id = "daily-temp"></span></li>
+                  <li class="list-group-item" >Wind: <span id = "daily-wind"></span> MPH</li>
+                  <li class="list-group-item" >Humidity: <span id = "daily-humidity"></span></li>
+                  <li class="list-group-item" >UV Index: <span id = "daily-uv"></span></li>
+                </ul>
+              </div>
+            <!--5-day Forcast-->
+            <div class = "flex-row justify-space-between" id="forecast-div">
+                
+                <div class="card bg-primary col-2 ">
+                    <h3 class="card-header text-uppercase"> <span id="forecast-date-1"></span></h3>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" > <span id = "forecast-condition-1"></span></li>
+                      <li class="list-group-item" >Temp: <span id = "forecast-temp-1"></span></li>
+                      <li class="list-group-item" >Wind: <span id = "forecast-wind-1"></span> MPH</li>
+                      <li class="list-group-item" >Humidity: <span id = "forecast-humidity-1"></span></li>
+                    </ul>
+                  </div>
+ 
+                  <div class="card bg-primary col-2 ">
+                    <h3 class="card-header text-uppercase"> <span id="forecast-date-2"></span></h3>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" > <span id = "forecast-condition-2"></span></li>
+                      <li class="list-group-item" >Temp: <span id = "forecast-temp-2"></span></li>
+                      <li class="list-group-item" >Wind: <span id = "forecast-wind-2"></span> MPH</li>
+                      <li class="list-group-item" >Humidity: <span id = "forecast-humidity-2"></span></li>
+                    </ul>
+                  </div>
+
+                  <div class="card bg-primary col-2 ">
+                    <h3 class="card-header text-uppercase"> <span id="forecast-date-3"></span></h3>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" > <span id = "forecast-condition-3"></span></li>
+                      <li class="list-group-item" >Temp: <span id = "forecast-temp-3"></span></li>
+                      <li class="list-group-item" >Wind: <span id = "forecast-wind-3"></span> MPH</li>
+                      <li class="list-group-item" >Humidity: <span id = "forecast-humidity-3"></span></li>
+                    </ul>
+                  </div>
+                  <div class="card bg-primary col-2 ">
+                    <h3 class="card-header text-uppercase"> <span id="forecast-date-4"></span></h3>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" > <span id = "forecast-condition-4"></span></li>
+                      <li class="list-group-item" >Temp: <span id = "forecast-temp-4"></span></li>
+                      <li class="list-group-item" >Wind: <span id = "forecast-wind-4"></span> MPH</li>
+                      <li class="list-group-item" >Humidity: <span id = "forecast-humidity-4"></span></li>
+                    </ul>
+                  </div>
+                  <div class="card bg-primary col-2 ">
+                    <h3 class="card-header text-uppercase"> <span id="forecast-date-5"></span></h3>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" > <span id = "forecast-condition-5"></span></li>
+                      <li class="list-group-item" >Temp: <span id = "forecast-temp-5"></span></li>
+                      <li class="list-group-item" >Wind: <span id = "forecast-wind-5"></span> MPH</li>
+                      <li class="list-group-item" >Humidity: <span id = "forecast-humidity-5"></span></li>
+                    </ul>
+                  </div>
+
+
+
+            </div>
+
+        </div>
+        <!-- scripts-->
+        <div>
+            <!-- bootstrap Scripts-->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+            
+
+            <script src="https://code.jquery.com/jquery.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+
+            <script src="./assets/js/scripts.js"></script>
+        </div>
+    </main>
+
+    
+</body>
+</html>
